@@ -19,7 +19,11 @@ _Front-End_
 _Back-End_
 * Flask
 
-## Challenges
+## Approach
+I decided to build this project like I would in a hackathon. I started with my first few hours installing and learning Flask on Youtube.
+
+**Challenges**
+
 Before starting this challenge, I had no experience whatsoever with back-end development. However, I went in with a lot of front-end experience; I knew HTML, CSS, Javascript, JQuery, and AngularJS. Because I enjoy the simplicity of Python, I decided to learn and use Flask for this project. One of the main challenges was having to quickly learn from the ground-up.
 
 As development continues, I will update this.
