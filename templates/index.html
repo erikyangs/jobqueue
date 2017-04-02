@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Job Queue">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!--Fonts-->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+	<!--Stylesheets-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!--FontAwesome-->
+	<script src="https://use.fontawesome.com/cbf9554986.js"></script>
+
+	<title>
+		Job Queue
+	</title>
+
+	<style>
+		h1, h2, h3, h4, h5, h6{
+			font-family: Montserrat;
+			font-weight: 700;
+			margin: 0px;
+		}
+		body{
+			font-family: Open Sans;
+			font-size: 16px;
+			line-height: 1.5;
+			background-color: #EEE;
+		}
+		nav{
+			border-bottom: 1px #DDD solid;
+			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+   			-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    		box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    		padding: 20px 0px;
+    		margin-bottom: 30px;
+    		background-color: #FFF;
+		}
+		nav h1{
+			color: #4188e6;
+			margin-bottom: 10px;
+		}
+		.content-box{
+			background-color: #FFF;
+			padding: 30px;
+			margin-bottom: 30px;
+			border: 1px #DDD solid;
+			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+   			-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    		box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+		}
+		.content-box h3{
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<div class="container">
+			<h1>jobqueue</h1>
+			RESTful API that fetches data from endpoints
+		</div>
+	</nav>
+	<div class="container">
+		<div class="content-box">
+			<h3>Add Job</h3>
+			<div>To add jobs, you can use the following:</div>
+			<code>POST /jobqueue/api/v1.0/queue_tasks</code>
+		</div>
+		<div class="content-box">
+			<h3>Check Job Queue</h3>
+			<div>To check on the status of all jobs in the job queue, use:</div>
+			<code>GET /jobqueue/api/v1.0/queue_tasks</code>
+		</div>
+		<div class="content-box">
+			<h3>Check Specific Job in Job Queue</h3>
+			<div>To check on the status of a specific jobs in the job queue, use:</div>
+			<code>GET /jobqueue/api/v1.0/queue_tasks/:task_id</code>
+		</div>
+		<div class="content-box">
+			<h3>Receive Result List</h3>
+			<div>To check on the results of all jobs, you can use the following:</div>
+			<code>GET /jobqueue/api/v1.0/results</code>
+		</div>
+		<div class="content-box">
+			<h3>Receive Result of Specific Task</h3>
+			<div>To check on the result of a certain job, you can use the following:</div>
+			<code>GET /jobqueue/api/v1.0/results/:task_id</code>
+		</div>
+	</div>
+
+	<!--Javascript-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</body>
+</html>
