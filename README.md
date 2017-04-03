@@ -84,3 +84,7 @@ The easy part was implementing the front-end. It was really satisfying to have e
 * Code Style
   * All HTML, CSS, Javascript, and JQuery is all in templates/index.html. Better style would separate these languages through external linking.
   * Code is very repetitive on the front-end. For testing purposes, I consciously did so. However, a cleaner, more modular method would be to use templating, provided by frameworks like Flask or AngularJS.
+* Input
+  * Ironically, https://www.google.com does not work because jsonify cannot parse through the HTML String.
+  * Does not work with websites such as https://www.airbnb.com because of forbidden access.
+  * Works with https://www.facebook.com however!
