@@ -1,102 +1,271 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Job Queue">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Job Queue">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-	<!--Fonts-->
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!--Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
-	<!--Stylesheets-->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-	<!--FontAwesome-->
-	<script src="https://use.fontawesome.com/cbf9554986.js"></script>
+    <!--FontAwesome-->
+    <script src="https://use.fontawesome.com/cbf9554986.js"></script>
 
-	<title>
-		Job Queue
-	</title>
+    <title>
+        Job Queue
+    </title>
 
-	<style>
-		h1, h2, h3, h4, h5, h6{
-			font-family: Montserrat;
-			font-weight: 700;
-			margin: 0px;
-		}
-		body{
-			font-family: Open Sans;
-			font-size: 16px;
-			line-height: 1.5;
-			background-color: #EEE;
-		}
-		nav{
-			border-bottom: 1px #DDD solid;
-			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-   			-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-    		box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-    		padding: 20px 0px;
-    		margin-bottom: 30px;
-    		background-color: #FFF;
-		}
-		nav h1{
-			color: #4188e6;
-			margin-bottom: 10px;
-		}
-		.content-box{
-			background-color: #FFF;
-			padding: 30px;
-			margin-bottom: 30px;
-			border: 1px #DDD solid;
-			-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-   			-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-    		box-shadow: 0 1px 5px rgba(0,0,0,0.1);
-		}
-		.content-box h3{
-			margin-bottom: 10px;
-		}
-	</style>
+    <style>
+        h1, h2, h3, h4, h5, h6{
+            font-family: Montserrat;
+            font-weight: 700;
+            margin: 0px;
+        }
+        body{
+            font-family: Open Sans;
+            font-size: 16px;
+            line-height: 1.5;
+            background-color: #EEE;
+        }
+        nav{
+            border-bottom: 1px #DDD solid;
+            -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            padding: 20px 0px;
+            margin-bottom: 30px;
+            background-color: #FFF;
+        }
+        nav h1{
+            color: #4188e6;
+            margin-bottom: 10px;
+        }
+        .content-box{
+            background-color: #FFF;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px #DDD solid;
+            -webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            -moz-box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+        }
+        .content-box h3{
+            margin-bottom: 10px;
+        }
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline: none;
+        }
+        .btn{
+            border-radius: 0px;
+        }
+        input{
+            width: 300px;
+            max-width: 100%;
+            padding: 8px;
+        }
+        .error{
+            color: #c7254e;
+        }
+        .success{
+            color: #4cae4c;
+        }
+    </style>
 </head>
 <body>
-	<nav>
-		<div class="container">
-			<h1>jobqueue</h1>
-			RESTful API that fetches data from endpoints
-		</div>
-	</nav>
-	<div class="container">
-		<div class="content-box">
-			<h3>Add Job</h3>
-			<div>To add jobs, you can use the following:</div>
-			<code>POST /jobqueue/api/v1.0/queue_tasks</code>
-		</div>
-		<div class="content-box">
-			<h3>Check Job Queue</h3>
-			<div>To check on the status of all jobs in the job queue, use:</div>
-			<code>GET /jobqueue/api/v1.0/queue_tasks</code>
-		</div>
-		<div class="content-box">
-			<h3>Check Specific Job in Job Queue</h3>
-			<div>To check on the status of a specific jobs in the job queue, use:</div>
-			<code>GET /jobqueue/api/v1.0/queue_tasks/:task_id</code>
-		</div>
-		<div class="content-box">
-			<h3>Receive Result List</h3>
-			<div>To check on the results of all jobs, you can use the following:</div>
-			<code>GET /jobqueue/api/v1.0/results</code>
-		</div>
-		<div class="content-box">
-			<h3>Receive Result of Specific Task</h3>
-			<div>To check on the result of a certain job, you can use the following:</div>
-			<code>GET /jobqueue/api/v1.0/results/:task_id</code>
-		</div>
-	</div>
+    <nav>
+        <div class="container">
+            <h1>jobqueue</h1>
+            RESTful API that fetches data from endpoints
+        </div>
+    </nav>
+    <div class="container">
+        <div class="content-box">
+            <h3>Add Job</h3>
+            <div>To add jobs, you can use the following:</div>
+            <code>POST /jobqueue/api/v1.0/queue_tasks</code>
+            <br><br>
+            <div>Example using curl:</div>
+            <code>curl -i -H "Content-Type: application/json" -X POST -d '{"url":"https://erikyangs.github.io"}' http://localhost:5000/jobqueue/api/v1.0/queue_tasks</code>
+            <br><br>
+            <div>Alternatively, add a job here:</div>
+            <input type="text" id="add-job" placeholder="URL To Add">
+            <div class="btn btn-primary" id="add-job-button">Add URL to Job Queue</div>
+        </div>
+        <div class="content-box">
+            <h3>Check Job Queue</h3>
+            <div>To check on the status of all jobs in the job queue, use:</div>
+            <code>GET /jobqueue/api/v1.0/queue_tasks</code>
+            <br><br>
+            <div>Example using curl:</div>
+            <code>curl -i http://localhost:5000/jobqueue/api/v1.0/queue_tasks</code>
+            <br><br>
+            <div>Alternatively, check the list of all jobs here:</div>
+            <div class="btn btn-primary" id="queue-tasks-button">Load Job Queue</div>
+        </div>
+        <div class="content-box">
+            <h3>Check Specific Job in Job Queue</h3>
+            <div>To check on the status of a specific jobs in the job queue, use:</div>
+            <code>GET /jobqueue/api/v1.0/queue_tasks/:task_id</code>
+            <br><br>
+            <div>Example using curl:</div>
+            <code>curl -i http://localhost:5000/jobqueue/api/v1.0/queue_tasks/2</code>
+            <br><br>
+            <div>Alternatively, check info about a specific job here:</div>
+            <input type="text" id="queue-task" placeholder="Job ID">
+            <div class="btn btn-primary" id="queue-task-button">Load Specific Job</div>
+        </div>
+        <div class="content-box">
+            <h3>Receive Result List</h3>
+            <div>To check on the results of all jobs, you can use the following:</div>
+            <code>GET /jobqueue/api/v1.0/results</code>
+            <br><br>
+            <div>Example using curl:</div>
+            <code>curl -i http://localhost:5000/jobqueue/api/v1.0/results</code>
+            <br><br>
+            <div>Alternatively, check the list of all results here:</div>
+            <div class="btn btn-primary" id="results-button">Load Results List</div>
+        </div>
+        <div class="content-box">
+            <h3>Receive Result of Specific Task</h3>
+            <div>To check on the result of a certain job, you can use the following:</div>
+            <code>GET /jobqueue/api/v1.0/results/:task_id</code>
+            <br><br>
+            <div>Example using curl:</div>
+            <code>curl -i http://localhost:5000/jobqueue/api/v1.0/results/3</code>
+            <br><br>
+            <div>Alternatively, check info about a specific result here:</div>
+            <input type="text" id="result" placeholder="Job ID">
+            <div class="btn btn-primary" id="result-button">Load Specific Result</div>
+        </div>
+    </div>
 
-	<!--Javascript-->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!--Javascript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Personal Javascript -->
+    <script>
+        $(document).ready(function(){
+            $("#add-job-button").click(function(){
+                var input = $("#add-job").val();
+                $(this).nextAll().remove();
+                if (input){
+                    input = JSON.stringify({"url": input})
+                    $.ajax({
+                        url: "/jobqueue/api/v1.0/queue_tasks",
+                        type:"POST",
+                        data: input,
+                        contentType:"application/json; charset=utf-8",
+                        dataType:"json",
+                        success: function(result){
+                            $("#add-job-button").after("<div class='success'>Successfully added task with URL " + result['queue_task']['url'] + ".</div><div>Task ID: " + result['queue_task']['id'] + "</div>");
+                        },
+                        error: function(jqXHR,textStatus,errorThrown){
+                            var HTML = "<div class='error'>" + errorThrown.toString() + "</div>";
+                            $("#add-job-button").after(HTML);
+                        }
+                    })
+                }
+                else{
+                    $(this).after("<div class='error'>Please enter a URL</div>");
+                }
+            });
+
+            $("#queue-tasks-button").click(function(){
+                $(this).nextAll().remove();
+                $.ajax({
+                    url: "/jobqueue/api/v1.0/queue_tasks",
+                    type:"GET",
+                    contentType:"application/json; charset=utf-8",
+                    dataType:"json",
+                    success: function(result){
+                        $("#queue-tasks-button").after("<div class='success'>Successfully received task list:</div><div class='tasksString'></div>");
+                        $(".tasksString").text(JSON.stringify(result["queue_tasks"]));
+                    },
+                    error: function(jqXHR,textStatus,errorThrown){
+                        var HTML = "<div class='error'>" + errorThrown.toString() + "</div>";
+                        $("#queue-tasks-button").after(HTML);
+                    }
+                })
+            });
+
+            $("#queue-task-button").click(function(){
+                var input = $("#queue-task").val();
+                $(this).nextAll().remove();
+                if (input){
+                    var taskURL = "/jobqueue/api/v1.0/queue_tasks/" + input
+                    $.ajax({
+                        url: taskURL,
+                        type:"GET",
+                        contentType:"application/json; charset=utf-8",
+                        dataType:"json",
+                        success: function(result){
+                            $("#queue-task-button").after("<div class='success'>Successfully received task:</div><div class='taskString'></div>");
+                            $(".taskString").text(JSON.stringify(result["queue_task"]));
+                        },
+                        error: function(jqXHR,textStatus,errorThrown){
+                            var HTML = "<div class='error'>" + errorThrown.toString() + "</div>";
+                            $("#queue-task-button").after(HTML);
+                        }
+                    })
+                }
+                else{
+                    $(this).after("<div class='error'>Please enter an ID</div>");
+                }
+            });
+
+            $("#results-button").click(function(){
+                $(this).nextAll().remove();
+                $.ajax({
+                    url: "/jobqueue/api/v1.0/results",
+                    type:"GET",
+                    contentType:"application/json; charset=utf-8",
+                    dataType:"json",
+                    success: function(result){
+                        $("#results-button").after("<div class='success'>Successfully received results list:</div><div class='resultsString'></div>");
+                        $(".resultsString").text(JSON.stringify(result["results"]));
+                    },
+                    error: function(jqXHR,textStatus,errorThrown){
+                        var HTML = "<div class='error'>" + errorThrown.toString() + "</div>";
+                        $("#results-button").after(HTML);
+                    }
+                })
+            });
+
+            $("#result-button").click(function(){
+                var input = $("#result").val();
+                $(this).nextAll().remove();
+                if (input){
+                    var resultURL = "/jobqueue/api/v1.0/results/" + input
+                    $.ajax({
+                        url: resultURL,
+                        type:"GET",
+                        contentType:"application/json; charset=utf-8",
+                        dataType:"json",
+                        success: function(result){
+                            $("#result-button").after("<div class='success'>Successfully received result:</div><div class='resultString'></div>");
+                            $(".resultString").text(JSON.stringify(result["result"]));
+                        },
+                        error: function(jqXHR,textStatus,errorThrown){
+                            var HTML = "<div class='error'>" + errorThrown.toString() + "</div>";
+                            $("#result-button").after(HTML);
+                        }
+                    })
+                }
+                else{
+                    $(this).after("<div class='error'>Please enter an ID</div>");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
