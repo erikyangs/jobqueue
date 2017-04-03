@@ -80,7 +80,7 @@ The easy part was implementing the front-end. It was really satisfying to have e
 * Security
   * There are no limits to who can GET and POST to the server. Future implementations should include user authentication.
 * Data
-  * Data is stored as a Python dictionary, and thus is not persistent
+  * Data is stored as a Python dictionary, and thus is not persistent.
 * Code Style
-  * All HTML, CSS, Javascript, and JQuery is all in templates/index.html. Better style would separate these languages through external linking
+  * All HTML, CSS, Javascript, and JQuery is all in templates/index.html. Better style would separate these languages through external linking.
   * Code is very repetitive on the front-end. For testing purposes, I consciously did so. However, a cleaner, more modular method would be to use templating, provided by frameworks like Flask or AngularJS.
