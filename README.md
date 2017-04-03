@@ -63,6 +63,7 @@ _Back-End_
 * Uses multithreading (worker threads) to fetch HTML data from endpoints
 * Updates queue and result object when job finishes
 * Notifies user of 404 and 400 errors
+* Updates status of each task from "Waiting" to "In Progress" to "Done"
 
 ## Challenges
 
