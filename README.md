@@ -80,7 +80,7 @@ The easy part was implementing the front-end. It was really satisfying to have e
 * Security
   * There are no limits to who can GET and POST to the server. Future implementations should include user authentication.
 * Data
-  * Data is stored as a Python dictionary, and thus is not persistent.
+  * Data is stored as a Python dictionary, and thus is not persistent. Perhaps MySQL and a Python connector to MySQL could be a solution.
 * Code Style
   * All HTML, CSS, Javascript, and JQuery is all in templates/index.html. Better style would separate these languages through external linking.
   * Code is very repetitive on the front-end. For testing purposes, I consciously did so. However, a cleaner, more modular method would be to use templating, provided by frameworks like Flask or AngularJS.
@@ -88,3 +88,5 @@ The easy part was implementing the front-end. It was really satisfying to have e
   * Ironically, https://www.google.com does not work because jsonify cannot parse through the HTML String.
   * Does not work with websites such as https://www.airbnb.com because of forbidden access.
   * Works with https://www.facebook.com however!
+* Output
+  * The ID is generated from 1 up. In a smarter implementation ID's should be handled by a database. When researching, I found that MySQL has an auto-increment feature, which could come into use.
