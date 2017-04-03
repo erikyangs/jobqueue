@@ -90,3 +90,5 @@ The easy part was implementing the front-end. It was really satisfying to have e
   * Works with https://www.facebook.com however!
 * Output
   * The ID is generated from 1 up. In a smarter implementation ID's should be handled by a database. When researching, I found that MySQL has an auto-increment feature, which could come into use.
+* UI
+  * HTML text is extremely long; introduce a button to toggle which results to show, and perhaps put the data in a more organized fashion such as a table.
